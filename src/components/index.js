@@ -1,23 +1,21 @@
 import Navbar from "./navbar";
-import Billing from "./billing";
-import CardDeal from "./CardDeal";
-import Business from "./business";
-import Clients from "./client";
-import CTA from "./CTA";
-import Stats from "./stats";
-import Footer from "./footer";
-import Testimonials from "./Testimonials";
-import Hero from "./hero";
+import VelocityText from "./velocityText";
+import HoverGallery from "./hover_gallery"
+import Services from "./services_section";
+import Hero from "./hero"
+import Loader from './loader'
+import TaskBoard from './task_board'
+import TaskHeading from './task_heading'
+import Footer from './footer'
 
 export {
-  Navbar,
-  Billing,
-  CardDeal,
-  Business,
-  Clients,
-  CTA,
-  Stats,
-  Footer,
-  Testimonials,
   Hero,
+  Navbar,
+  VelocityText,
+  HoverGallery,
+  Services,
+  Loader,
+  TaskBoard,
+ TaskHeading,
+ Footer,
 };

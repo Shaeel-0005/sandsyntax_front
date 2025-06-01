@@ -1,38 +1,59 @@
-import React from 'react'
-import styles from './style'
-
-import { Navbar, Billing, CardDeal, Business, Clients, CTA, Stats, Footer,
-  Testimonials, Hero,} from './components';
+import React, { useState, useEffect } from 'react';
+import styles from './style';
+import {
+  Navbar,
+  VelocityText,
+  Loader,
+  HoverGallery,
+  Services,
+  TaskHeading,
+  Hero,
+  Footer,
+} from './components';
+import './index.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+      setTimeout(() => setShowContent(true), 500); // delay to let loader fade out
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className='bg-primary w-full overflow-hidden'>
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-        <div className={`${styles.boxWidth}`}>
-          <Navbar/>
+    <>
+      {loading && (
+        <div className="loader-wrapper fade-out">
+          <Loader />
         </div>
-      </div>
+      )}
 
-      <div className={`bg-primary ${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
-        <Hero/>
-        </div>
-      </div>
+      <div className={`main-content ${showContent ? 'fade-in' : 'hidden'}`}>
+        <div className="bg-primary w-full overflow-hidden">
+          <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+            <div className={`${styles.boxWidth}`}>
+              <Navbar />
+            </div>
+          </div>
 
-      <div className={`bg-primary ${styles.paddingX}${styles.flexStart}`}>
-        <div className={`${styles.boxWidth}`}>
-        <Stats/>
-        <Business/>
-        <Billing/>
-        <CardDeal/>
-        <Testimonials/>
-        <Clients/>
-        <CTA/>
-        <Footer/>
+          <div className="w-full">
+            <Hero />
+            <VelocityText />
+            <Services />
+            <HoverGallery />
+            <TaskHeading />
+           
+            <Footer />
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;

@@ -19,29 +19,28 @@ export const navLinks = [
   },
 ];
 
-export const features = [
+export const services = [
   {
-    id: "feature-1",
-    icon: star,
-    title: "Rewards",
-    content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+    title: 'Web Development',
+    description:
+      'We build fast, modern websites tailored to your business goals using the latest tech stack.',
+    bgColor: 'bg-[#1e293b]', // slate-800
   },
   {
-    id: "feature-2",
-    icon: shield,
-    title: "100% Secured",
-    content:
-      "We take proactive steps make sure your information and transactions are secure.",
+    title: 'Automation',
+    description:
+      'Automate repetitive tasks, workflows, and backend systems to scale faster and smarter.',
+    bgColor: 'bg-[#0f766e]', // teal-700
   },
   {
-    id: "feature-3",
-    icon: send,
-    title: "Balance Transfer",
-    content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+    title: 'Branding',
+    description:
+      'We help shape how the world sees you, with strong visual identity and storytelling.',
+    bgColor: 'bg-[#78350f]', // amber-900
   },
 ];
+
+
 
 export const feedback = [
   {

@@ -23,8 +23,16 @@ import twitter from "./twitter.svg";
 import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
+import hero_bg from "./hero_bg.png";
+import float1 from './float1.png';
+import float2 from './float2.png';
+import float3 from './float3.png'
 
 export {
+  float1,
+  float2,
+  float3,
+  hero_bg,
   airbnb,
   bill,
   binance,

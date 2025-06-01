@@ -13,10 +13,61 @@
   );
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
+/* index.css */
+.loader-wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: #121212; /* match your Loader background */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.main-content.fade-in {
+  opacity: 1;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
 
 * {
   scroll-behavior: smooth;
 }
+
+.fade-out-loader {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    display: none;
+  }
+}
+
+
 
 .text-gradient {
   background: radial-gradient(
