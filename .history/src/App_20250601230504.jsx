@@ -26,37 +26,33 @@ function App() {
   }, []);
 
   return (
-   <>
-  {/* Loader */}
-  {loading && (
-    <div className={`loader-wrapper ${!loading ? 'fade-out-loader' : ''}`}>
-      <Loader />
-    </div>
-  )}
+    <>
+      {loading && (
+        <div className="loader-wrapper fade-out">
+          <Loader />
+        </div>
+      )}
 
-  {/* Main App Content */}
-  {showContent && (
-    <div className="main-content fade-in">
-      <div className="bg-primary w-full overflow-hidden">
-        <div className={`${styles.paddingX} ${styles.flexCenter}`}>
-          <div className={`${styles.boxWidth}`}>
-            <Navbar />
+      <div className={`main-content ${showContent ? 'fade-in' : 'hidden'}`}>
+        <div className="bg-primary w-full overflow-hidden">
+          <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+            <div className={`${styles.boxWidth}`}>
+              <Navbar />
+            </div>
+          </div>
+
+          <div className="w-full">
+            <Hero />
+            <VelocityText />
+            <Services />
+            <HoverGallery />
+            <TaskHeading />
+           
+            <Footer />
           </div>
         </div>
-
-        <div className="w-full">
-          <Hero />
-          <VelocityText />
-          <Services />
-          <HoverGallery />
-          <TaskHeading />
-          <Footer />
-        </div>
       </div>
-    </div>
-  )}
-</>
-
+    </>
   );
 }
 

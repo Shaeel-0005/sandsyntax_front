@@ -26,12 +26,9 @@
 }
 
 .main-content {
-  background-color: #121212; /* match loader bg */
-  min-height: 100vh;
   opacity: 0;
   transition: opacity 0.5s ease-in;
 }
-
 
 .main-content.fade-in {
   opacity: 1;
