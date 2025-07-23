@@ -120,12 +120,12 @@ const Hero = () => {
       <section className="relative p-0 w-full h-screen overflow-hidden">
         {/* Background image with enhanced styling */}
         <div
-          className="absolute top-0 left-1/2 h-full bg-no-repeat bg-cover bg-center z-0"
+          className="absolute inset-0 min-w-screen min-h-screen bg-no-repeat bg-cover bg-center z-0"
           style={{
             backgroundImage: `url(${hero_bg})`,
             filter: "brightness(0.7) contrast(1.1)",
             width: "100vw",
-            transform: "translateX(-50%)",
+            height: "100vh",
           }}
         />
 

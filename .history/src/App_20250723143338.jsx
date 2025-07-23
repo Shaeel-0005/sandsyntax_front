@@ -35,7 +35,7 @@ function App() {
               <Navbar />
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full top-5">
             <Hero />
             <VelocityText />
             <Services />

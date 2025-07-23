@@ -4,9 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* =======================
-    Root Variables
-======================= */
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
@@ -17,68 +14,87 @@
   --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
-/* =======================
-    Global Reset
-======================= */
-* {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-/* =======================
-    Transition Wrappers
-======================= */
 .transition-wrapper {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background-color: #121212;
-  overflow: hidden;
 }
 
-/* =======================
-    Loader Styles
-======================= */
+/* Loader visible, content hidden */
+.show-loader .loader-wrapper {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.show-loader .main-content {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Content visible, loader hidden */
+.show-content .loader-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.show-content .main-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Loader wrapper styles */
 .loader-wrapper {
   position: fixed;
   inset: 0;
-  z-index: 50;
-  background-color: #121212;
+  background-color: #121212; /* match your Loader background */
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition: opacity 0.6s ease-in-out;
+  /* animation: fadeOut 0.5s ease-out forwards; */
 }
 
-.loader-wrapper.fade-out {
-  opacity: 0;
-  visibility: hidden;
-}
-
-/* =======================
-    Main App Content
-======================= */
 .main-content {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
   background-color: #121212;
   min-height: 100vh;
 }
 
-.main-content.fade-in {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
+.hidden {
+  display: none;
 }
 
-/* =======================
-    Gradients & Visuals
-======================= */
+
+* {
+  scroll-behavior: smooth;
+}
+
+.fade-out-loader {
+  animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    display: none;
+  }
+}
+
+
+
 .text-gradient {
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
@@ -108,7 +124,12 @@
 }
 
 .bg-black-gradient {
-  background: var(--black-gradient);
+  background: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
 }
 
 .bg-black-gradient-2 {
@@ -133,21 +154,32 @@
 }
 
 .box-shadow {
-  box-shadow: var(--card-shadow);
+  box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
 }
 
-/* =======================
-    Animations
-======================= */
 .sidebar {
+  -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-top {
+  0% {
+    -webkit-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-top {
   0% {
+    -webkit-transform: translateY(100px);
     transform: translateY(100px);
   }
   100% {
+    -webkit-transform: translateY(0);
     transform: translateY(0);
   }
 }
@@ -169,7 +201,6 @@
   background: var(--black-gradient);
 }
 
-/* Gradient blobs */
 .blue__gradient {
   background: linear-gradient(180deg, rgba(188, 165, 255, 0) 0%, #214d76 100%);
   filter: blur(123px);
@@ -183,19 +214,4 @@
 .white__gradient {
   background: rgba(255, 255, 255, 0.6);
   filter: blur(750px);
-}
-
-html {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
-body {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  /* REMOVE height: 100vh; */
 }
